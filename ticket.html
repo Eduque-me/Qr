@@ -110,16 +110,8 @@ var QRCode;!function(){function a(a){this.mode=c.MODE_8BIT_BYTE,this.data=a,this
 </script>
 
 <script>
-// Déterminer l'URL de base (GitHub Pages ou localhost)
-const BASE = (() => {
-  const l = window.location;
-  // Retirer ticket.html du chemin
-  const path = l.pathname.replace(/\/ticket\.html$/, '/index.html');
-  if (!path.endsWith('index.html')) {
-    return l.origin + path.replace(/\/$/, '') + '/index.html';
-  }
-  return l.origin + path;
-})();
+// URL fixe GitHub Pages — toujours la bonne adresse peu importe d'où ticket.html est ouvert
+const BASE = 'https://eduque-me.github.io/Qr/index.html';
 
 const profs = [
   { id: 0, label: "Présidente du Jury",    abbr: "Mme RANDRIAMANANTANY" },
