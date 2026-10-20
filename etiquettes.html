@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planche d'Étiquettes A4 à Imprimer - Soutenance Master MISEI</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- QRCodeJS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        botanic: {
+                            50: '#f3f7f4',
+                            100: '#e4ece5',
+                            700: '#324f3b',
+                            800: '#2a4031',
+                            900: '#1b2d21',
+                        },
+                        gold: {
+                            400: '#d4b35e',
+                            600: '#aa8233',
+                            700: '#876226',
+                        },
+                        cream: '#faf7f2',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #e8ece9;
+            color: #1b2d21;
+        }
+
+        .serif-font {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        /* Feuille format A4 standard pour l'écran et l'impression */
+        .a4-sheet {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 12mm 10mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+        }
+
+        /* Lignes de découpe pointillées */
+        .tag-card {
+            border: 1.5px dashed #b5c7b7;
+            position: relative;
+            background-color: #faf7f2;
+            page-break-inside: avoid;
+        }
+
+        .tag-inner-border {
+            border: 1px solid #d4b35e;
+        }
+
+        /* Style spécifique pour l'impression papier */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-sheet {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 8mm 6mm !important;
+                width: 100% !important;
+                min-height: auto !important;
+            }
+            .tag-card {
+                border: 1px dashed #999 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body class="py-6 px-4">
+
+    <!-- PANNEAU DE CONFIGURATION & BOUTONS D'IMPRESSION (Masqué à l'impression) -->
+    <div class="no-print max-w-4xl mx-auto mb-6 bg-white rounded-2xl p-6 shadow-md border border-botanic-100">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-gray-100 pb-5">
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-lg bg-botanic-800 text-white flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-print"></i>
+                    </span>
+                    <h1 class="text-xl font-bold text-botanic-900">Planche d'Étiquettes A4 pour les 4 Pots</h1>
+                </div>
+                <p class="text-xs text-botanic-700 mt-1">
+                    Prête à imprimer sur du papier blanc ou cartonné (160g à 250g). Découpez le long des pointillés.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-2.5 w-full md:w-auto">
+                <a href="index.html" class="flex-1 md:flex-initial text-center text-xs font-semibold px-4 py-2.5 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Voir la page web
+                </a>
+                <button onclick="window.print()" class="flex-1 md:flex-initial text-xs font-bold px-5 py-2.5 rounded-xl bg-botanic-800 hover:bg-botanic-900 text-white shadow-md flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-print text-sm"></i> Imprimer la planche A4
+                </button>
+            </div>
+        </div>
+
+        <!-- Personnalisation de l'URL publique -->
+        <div class="mt-4 pt-2">
+            <label class="block text-xs font-semibold text-botanic-900 uppercase tracking-wider mb-1.5">
+                <i class="fa-solid fa-link text-gold-600 mr-1"></i> Adresse Web de votre page en ligne :
+            </label>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <input type="text" id="baseUrlInput" value="https://rakotondraibe-soutenance.netlify.app" placeholder="https://votre-site.netlify.app" class="flex-grow text-xs sm:text-sm font-mono border border-botanic-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-botanic-500 focus:outline-none bg-gray-50">
+                <button onclick="updateAllQRCodes()" class="text-xs font-semibold bg-gold-600 hover:bg-gold-700 text-white px-4 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-arrows-rotate"></i> Actualiser les QR Codes
+                </button>
+            </div>
+            <p class="text-[11px] text-gray-500 mt-1.5">
+                💡 <em>Astuce :</em> Si vous modifiez l'URL ci-dessus, les 4 QR codes se mettent à jour instantanément avec <code>?prof=0</code>, <code>?prof=1</code>, etc.
+            </p>
+        </div>
+
+        <!-- Conseils de fixation pour les pots -->
+        <div class="mt-4 bg-botanic-50 rounded-xl p-3.5 border border-botanic-100 flex items-start gap-2.5 text-xs text-botanic-800">
+            <i class="fa-solid fa-lightbulb text-gold-600 text-base mt-0.5"></i>
+            <div>
+                <strong>Comment fixer sur vos pots ronds blancs :</strong>
+                <ul class="list-disc list-inside mt-1 space-y-0.5 text-botanic-700">
+                    <li><strong>Option bâtonnet (recommandée) :</strong> Collez l'étiquette sur une petite pique en bois (cure-dent en bambou) et plantez-la dans la terre de la succulente.</li>
+                    <li><strong>Option ficelle :</strong> Percez le petit rond en haut avec une perforatrice et nouez avec une ficelle de jute autour du pot.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEUILLE A4 FORMAT IMPRESSION (2 colonnes x 2 rangées = 4 étiquettes) -->
+    <div class="a4-sheet">
+        <!-- Grille 2x2 pour 4 étiquettes généreuses et très lisibles -->
+        <div class="grid grid-cols-2 gap-4 h-full">
+
+            <!-- ÉTIQUETTE 1 : Mme RANDRIAMANANTANY Zely Arivelo -->
+            <div class="tag-card rounded-2xl p-3 flex flex-col justify-between text-center">
+                <!-- Repère trou de suspension pour ficelle -->
+                <div class="w-4 h-4 mx-auto rounded-full border border-gray-400 mb-1 flex items-center justify-center text-[7px] text-gray-400">●</div>
+                
+                <div class="tag-inner-border rounded-xl p-3 bg-white/70 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-[9px] font-bold tracking-widest uppercase text-botanic-700 pb-0.5">
+                            Université d'Antananarivo • Master MISEI
+                        </div>
+                        <div class="text-[8px] text-gray-500 uppercase">Soutenance de Diplôme d'Ingénieur</div>
+                        
+                        <div class="my-2 border-t border-b border-gold-400/40 py-1.5">
+                            <span class="text-[8px] font-bold text-gold-700 uppercase tracking-widest block">Hommage & Reconnaissance</span>
+                            <h2 class="serif-font text-base font-bold text-botanic-900 leading-tight mt-0.5">
+                                Mme RANDRIAMANANTANY Zely Arivelo
+                            </h2>
+                            <p class="text-[10px] text-botanic-800 font-semibold">Présidente du Jury</p>
+                            <p class="text-[8.5px] text-gray-600">Professeur à la Faculté des Sciences</p>
+                        </div>
+                    </div>
+
+                    <!-- QR CODE CONTENEUR -->
+                    <div class="py-1 flex flex-col items-center justify-center">
+                        <div id="qrcode-0" class="p-1.5 bg-white rounded-lg border border-botanic-200 shadow-sm flex items-center justify-center"></div>
+                        <div class="text-[9px] font-bold text-botanic-800 mt-1 flex items-center gap-1">
+                            <i class="fa-solid fa-camera text-gold-600"></i> Scannez-moi avec votre téléphone 🌱
+                        </div>
+                        <div class="text-[8px] text-gray-500">Message personnel & Fiche de la plante</div>
+                    </div>
+
+                    <!-- Verset de Bénédiction -->
+                    <div class="text-[7.5px] italic text-gold-700 my-0.5">
+                        « Que l’Éternel te bénisse, et qu’il te garde ! » <span class="not-italic font-semibold text-gray-500">(Nb 6:24)</span>
+                    </div>
+
+                    <div class="pt-1.5 border-t border-gray-200 text-[8px] text-gray-600">
+                        <span class="text-botanic-800 font-semibold">Présenté par :</span> RAKOTONDRAIBE Manitra Harivony
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÉTIQUETTE 2 : M. RAKOTOARIMANANA Liva Graffin -->
+            <div class="tag-card rounded-2xl p-3 flex flex-col justify-between text-center">
+                <!-- Repère trou de suspension pour ficelle -->
+                <div class="w-4 h-4 mx-auto rounded-full border border-gray-400 mb-1 flex items-center justify-center text-[7px] text-gray-400">●</div>
+                
+                <div class="tag-inner-border rounded-xl p-3 bg-white/70 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-[9px] font-bold tracking-widest uppercase text-botanic-700 pb-0.5">
+                            Université d'Antananarivo • Master MISEI
+                        </div>
+                        <div class="text-[8px] text-gray-500 uppercase">Soutenance de Diplôme d'Ingénieur</div>
+                        
+                        <div class="my-2 border-t border-b border-gold-400/40 py-1.5">
+                            <span class="text-[8px] font-bold text-gold-700 uppercase tracking-widest block">Gratitude & Respect</span>
+                            <h2 class="serif-font text-base font-bold text-botanic-900 leading-tight mt-0.5">
+                                M. RAKOTOARIMANANA Liva Graffin
+                            </h2>
+                            <p class="text-[10px] text-botanic-800 font-semibold">Encadreur Pédagogique</p>
+                            <p class="text-[8.5px] text-gray-600">Professeur, Resp. Parcours MISEI</p>
+                        </div>
+                    </div>
+
+                    <!-- QR CODE CONTENEUR -->
+                    <div class="py-1 flex flex-col items-center justify-center">
+                        <div id="qrcode-1" class="p-1.5 bg-white rounded-lg border border-botanic-200 shadow-sm flex items-center justify-center"></div>
+                        <div class="text-[9px] font-bold text-botanic-800 mt-1 flex items-center gap-1">
+                            <i class="fa-solid fa-camera text-gold-600"></i> Scannez-moi avec votre téléphone 🌱
+                        </div>
+                        <div class="text-[8px] text-gray-500">Message personnel & Fiche de la plante</div>
+                    </div>
+
+                    <!-- Verset de Bénédiction -->
+                    <div class="text-[7.5px] italic text-gold-700 my-0.5">
+                        « Que l’Éternel te bénisse, et qu’il te garde ! » <span class="not-italic font-semibold text-gray-500">(Nb 6:24)</span>
+                    </div>
+
+                    <div class="pt-1.5 border-t border-gray-200 text-[8px] text-gray-600">
+                        <span class="text-botanic-800 font-semibold">Présenté par :</span> RAKOTONDRAIBE Manitra Harivony
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÉTIQUETTE 3 : M. CLERK -->
+            <div class="tag-card rounded-2xl p-3 flex flex-col justify-between text-center">
+                <!-- Repère trou de suspension pour ficelle -->
+                <div class="w-4 h-4 mx-auto rounded-full border border-gray-400 mb-1 flex items-center justify-center text-[7px] text-gray-400">●</div>
+                
+                <div class="tag-inner-border rounded-xl p-3 bg-white/70 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-[9px] font-bold tracking-widest uppercase text-botanic-700 pb-0.5">
+                            Université d'Antananarivo • Master MISEI
+                        </div>
+                        <div class="text-[8px] text-gray-500 uppercase">Soutenance de Diplôme d'Ingénieur</div>
+                        
+                        <div class="my-2 border-t border-b border-gold-400/40 py-1.5">
+                            <span class="text-[8px] font-bold text-gold-700 uppercase tracking-widest block">Témoignage de Gratitude</span>
+                            <h2 class="serif-font text-base font-bold text-botanic-900 leading-tight mt-0.5">
+                                Monsieur CLERK
+                            </h2>
+                            <p class="text-[10px] text-botanic-800 font-semibold">Examinateur du Jury</p>
+                            <p class="text-[8.5px] text-gray-600">Docteur en Physique</p>
+                        </div>
+                    </div>
+
+                    <!-- QR CODE CONTENEUR -->
+                    <div class="py-1 flex flex-col items-center justify-center">
+                        <div id="qrcode-2" class="p-1.5 bg-white rounded-lg border border-botanic-200 shadow-sm flex items-center justify-center"></div>
+                        <div class="text-[9px] font-bold text-botanic-800 mt-1 flex items-center gap-1">
+                            <i class="fa-solid fa-camera text-gold-600"></i> Scannez-moi avec votre téléphone 🌱
+                        </div>
+                        <div class="text-[8px] text-gray-500">Message personnel & Fiche de la plante</div>
+                    </div>
+
+                    <!-- Verset de Bénédiction -->
+                    <div class="text-[7.5px] italic text-gold-700 my-0.5">
+                        « Que l’Éternel te bénisse, et qu’il te garde ! » <span class="not-italic font-semibold text-gray-500">(Nb 6:24)</span>
+                    </div>
+
+                    <div class="pt-1.5 border-t border-gray-200 text-[8px] text-gray-600">
+                        <span class="text-botanic-800 font-semibold">Présenté par :</span> RAKOTONDRAIBE Manitra Harivony
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÉTIQUETTE 4 : M. ANDRIANAIVO Rivo Nirina -->
+            <div class="tag-card rounded-2xl p-3 flex flex-col justify-between text-center">
+                <!-- Repère trou de suspension pour ficelle -->
+                <div class="w-4 h-4 mx-auto rounded-full border border-gray-400 mb-1 flex items-center justify-center text-[7px] text-gray-400">●</div>
+                
+                <div class="tag-inner-border rounded-xl p-3 bg-white/70 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-[9px] font-bold tracking-widest uppercase text-botanic-700 pb-0.5">
+                            SNOVIBOX SARL • Master MISEI
+                        </div>
+                        <div class="text-[8px] text-gray-500 uppercase">Partenariat & Encadrement Professionnel</div>
+                        
+                        <div class="my-2 border-t border-b border-gold-400/40 py-1.5">
+                            <span class="text-[8px] font-bold text-gold-700 uppercase tracking-widest block">Profonde Reconnaissance</span>
+                            <h2 class="serif-font text-base font-bold text-botanic-900 leading-tight mt-0.5">
+                                M. ANDRIANAIVO Rivo Nirina
+                            </h2>
+                            <p class="text-[10px] text-botanic-800 font-semibold">Encadreur Professionnel</p>
+                            <p class="text-[8.5px] text-gray-600">Gérant de l'entreprise SNOVIBOX SARL</p>
+                        </div>
+                    </div>
+
+                    <!-- QR CODE CONTENEUR -->
+                    <div class="py-1 flex flex-col items-center justify-center">
+                        <div id="qrcode-3" class="p-1.5 bg-white rounded-lg border border-botanic-200 shadow-sm flex items-center justify-center"></div>
+                        <div class="text-[9px] font-bold text-botanic-800 mt-1 flex items-center gap-1">
+                            <i class="fa-solid fa-camera text-gold-600"></i> Scannez-moi avec votre téléphone 🌱
+                        </div>
+                        <div class="text-[8px] text-gray-500">Message personnel & Fiche de la plante</div>
+                    </div>
+
+                    <!-- Verset de Bénédiction -->
+                    <div class="text-[7.5px] italic text-gold-700 my-0.5">
+                        « Que l’Éternel te bénisse, et qu’il te garde ! » <span class="not-italic font-semibold text-gray-500">(Nb 6:24)</span>
+                    </div>
+
+                    <div class="pt-1.5 border-t border-gray-200 text-[8px] text-gray-600">
+                        <span class="text-botanic-800 font-semibold">Présenté par :</span> RAKOTONDRAIBE Manitra Harivony
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT DE GÉNÉRATION DYNAMIQUE DES QR CODES -->
+    <script>
+        const qrInstances = [];
+
+        function updateAllQRCodes() {
+            let baseUrl = document.getElementById('baseUrlInput').value.trim();
+            if (!baseUrl) {
+                baseUrl = 'https://rakotondraibe-soutenance.netlify.app';
+            }
+            // Retrait du slash final éventuel
+            baseUrl = baseUrl.replace(/\/+$/, "");
+
+            for (let i = 0; i < 4; i++) {
+                const targetUrl = `${baseUrl}/?prof=${i}`;
+                const container = document.getElementById(`qrcode-${i}`);
+                if (!container) continue;
+
+                container.innerHTML = ""; // Vider l'ancien QR code
+
+                new QRCode(container, {
+                    text: targetUrl,
+                    width: 125,
+                    height: 125,
+                    colorDark: "#1b2d21",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        }
+
+        // Génération automatique dès le chargement de la page
+        window.addEventListener('DOMContentLoaded', () => {
+            // Si ouvert depuis une URL spécifique, on s'adapte
+            if (window.location.protocol.startsWith('http')) {
+                const currentOrigin = window.location.origin + window.location.pathname.replace('etiquettes.html', 'index.html');
+                document.getElementById('baseUrlInput').value = currentOrigin;
+            }
+            updateAllQRCodes();
+        });
+    </script>
+</body>
+</html>

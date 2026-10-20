@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets Thermiques : QR Code + SCAN ME</title>
+    
+    <!-- QRCodeJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f2f4f6;
+            color: #000000;
+            padding: 20px 10px;
+        }
+
+        /* PANNEAU DE CONTRÔLE (MASQUÉ À L'IMPRESSION) */
+        .no-print {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            border: 1px solid #d0d7de;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .no-print h1 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .no-print p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .form-row {
+            margin-bottom: 12px;
+        }
+
+        .form-row label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .form-row input, .form-row select {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 13px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .btn-print {
+            cursor: pointer;
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            border: none;
+            background-color: #000000;
+            color: #ffffff;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-print:hover {
+            background-color: #333333;
+        }
+
+        /* CONTENEUR DE TOUS LES TICKETS */
+        .tickets-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* ÉTIQUETTE INDIVIDUELLE */
+        .ticket-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* LABEL D'AIDE À L'ÉCRAN POUR SAVOIR POUR QUEL PROF EST LE TICKET */
+        .pot-label-screen {
+            font-size: 12px;
+            font-weight: 700;
+            background: #e1e7ec;
+            color: #1a2733;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        /* TICKET THERMIQUE (58mm par défaut) */
+        .thermal-ticket {
+            background: #ffffff;
+            width: 58mm;
+            padding: 6mm 2mm 5mm 2mm;
+            text-align: center;
+            border: 1px dashed #999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        /* CONTENEUR DU QR CODE */
+        .qr-code-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .qr-code-box img, .qr-code-box canvas {
+            display: block;
+            margin: 0 auto;
+            image-rendering: pixelated;
+        }
+
+        /* TEXTE "SCAN ME" EN BAS */
+        .scan-me-text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13pt;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000000;
+            margin-top: 5px;
+            line-height: 1;
+        }
+
+        /* IMPRESSION PURE THERMIQUE */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .no-print, .pot-label-screen {
+                display: none !important;
+            }
+
+            .tickets-wrapper {
+                gap: 0 !important;
+            }
+
+            .ticket-item {
+                margin: 0 !important;
+                padding: 0 !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+
+            .thermal-ticket {
+                border: none !important;
+                margin: 0 auto !important;
+                padding: 4mm 2mm 4mm 2mm !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CONTRÔLES (Masqués à l'impression) -->
+    <div class="no-print">
+        <h1>🖨️ Étiquettes Thermiques Minimalistes</h1>
+        <p>Uniquement le <strong>Code QR</strong> + le texte <strong>SCAN ME</strong> en bas.</p>
+
+        <div class="form-row">
+            <label>Largeur de votre rouleau thermique :</label>
+            <select id="rollWidth" onchange="changeWidth(this.value)">
+                <option value="58mm" selected>58 mm (Petit rouleau ticket standard)</option>
+                <option value="80mm">80 mm (Grand rouleau ticket de caisse)</option>
+                <option value="48mm">48 mm (Format mini étiquette)</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label>Texte sous le QR Code :</label>
+            <input type="text" id="scanTextInput" value="SCAN ME" oninput="changeScanText(this.value)">
+        </div>
+
+        <div class="form-row">
+            <label>Adresse du site :</label>
+            <div style="display: flex; gap: 6px;">
+                <input type="text" id="siteUrlInput" value="https://eduque-me.github.io/Qr" onchange="regenerateQRs()">
+                <button type="button" style="padding: 6px 10px; font-size: 11px; font-weight: bold; cursor: pointer; border: 1px solid #aaa; border-radius: 6px; background: #eee;" onclick="setGithubUrl()">URL GitHub Pages</button>
+            </div>
+            <p style="font-size: 11px; color: #666; margin-top: 4px;">
+                🌐 <strong>URL GitHub Pages :</strong> <code>https://eduque-me.github.io/Qr</code>
+            </p>
+        </div>
+
+        <button class="btn-print" onclick="window.print()">🖨️ IMPRIMER LES ÉTIQUETTES</button>
+    </div>
+
+    <!-- LES 4 ÉTIQUETTES THERMIQUES PUR QR + SCAN ME -->
+    <div class="tickets-wrapper">
+
+        <!-- POT 1 -->
+        <div class="ticket-item">
+            <div class="pot-label-screen">🌱 Pot 1 : Mme RANDRIAMANANTANY (Présidente)</div>
+            <div class="thermal-ticket">
+                <div class="qr-code-box" id="qr-0"></div>
+                <div class="scan-me-text">SCAN ME</div>
+            </div>
+        </div>
+
+        <!-- POT 2 -->
+        <div class="ticket-item">
+            <div class="pot-label-screen">🌱 Pot 2 : M. RAKOTOARIMANANA (Encadreur Pédagogique)</div>
+            <div class="thermal-ticket">
+                <div class="qr-code-box" id="qr-1"></div>
+                <div class="scan-me-text">SCAN ME</div>
+            </div>
+        </div>
+
+        <!-- POT 3 -->
+        <div class="ticket-item">
+            <div class="pot-label-screen">🌱 Pot 3 : Monsieur CLERK (Examinateur)</div>
+            <div class="thermal-ticket">
+                <div class="qr-code-box" id="qr-2"></div>
+                <div class="scan-me-text">SCAN ME</div>
+            </div>
+        </div>
+
+        <!-- POT 4 -->
+        <div class="ticket-item">
+            <div class="pot-label-screen">🌱 Pot 4 : M. ANDRIANAIVO (Encadreur SNOVIBOX)</div>
+            <div class="thermal-ticket">
+                <div class="qr-code-box" id="qr-3"></div>
+                <div class="scan-me-text">SCAN ME</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT DE GÉNÉRATION DES QR CODES -->
+    <script>
+        function setGithubUrl() {
+            document.getElementById('siteUrlInput').value = 'https://eduque-me.github.io/Qr';
+            regenerateQRs();
+        }
+
+        function regenerateQRs() {
+            let baseUrl = document.getElementById('siteUrlInput').value.trim();
+            if (!baseUrl) baseUrl = 'https://eduque-me.github.io/Qr';
+            baseUrl = baseUrl.replace(/\/+$/, "");
+
+            const widthVal = document.getElementById('rollWidth').value;
+            let qrPixelSize = 145;
+            if (widthVal === '80mm') qrPixelSize = 190;
+            if (widthVal === '48mm') qrPixelSize = 120;
+
+            for (let i = 0; i < 4; i++) {
+                const url = `${baseUrl}/?prof=${i}`;
+                const container = document.getElementById(`qr-${i}`);
+                if (!container) continue;
+                container.innerHTML = "";
+
+                new QRCode(container, {
+                    text: url,
+                    width: qrPixelSize,
+                    height: qrPixelSize,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
+        }
+
+        function changeWidth(val) {
+            const tickets = document.querySelectorAll('.thermal-ticket');
+            tickets.forEach(t => t.style.width = val);
+            regenerateQRs();
+        }
+
+        function changeScanText(text) {
+            const textNodes = document.querySelectorAll('.scan-me-text');
+            textNodes.forEach(node => node.innerText = text || 'SCAN ME');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            regenerateQRs();
+        });
+    </script>
+</body>
+</html>
