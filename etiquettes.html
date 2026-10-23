@@ -137,7 +137,7 @@
                 <i class="fa-solid fa-link text-gold-600 mr-1"></i> Adresse Web de votre page en ligne :
             </label>
             <div class="flex flex-col sm:flex-row gap-2">
-                <input type="text" id="baseUrlInput" value="https://rakotondraibe-soutenance.netlify.app" placeholder="https://votre-site.netlify.app" class="flex-grow text-xs sm:text-sm font-mono border border-botanic-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-botanic-500 focus:outline-none bg-gray-50">
+                <input type="text" id="baseUrlInput" value="https://eduque-me.github.io/Qr" placeholder="https://eduque-me.github.io/Qr" class="flex-grow text-xs sm:text-sm font-mono border border-botanic-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-botanic-500 focus:outline-none bg-gray-50">
                 <button onclick="updateAllQRCodes()" class="text-xs font-semibold bg-gold-600 hover:bg-gold-700 text-white px-4 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
                     <i class="fa-solid fa-arrows-rotate"></i> Actualiser les QR Codes
                 </button>
@@ -343,7 +343,7 @@
         function updateAllQRCodes() {
             let baseUrl = document.getElementById('baseUrlInput').value.trim();
             if (!baseUrl) {
-                baseUrl = 'https://rakotondraibe-soutenance.netlify.app';
+                baseUrl = 'https://eduque-me.github.io/Qr';
             }
             // Retrait du slash final éventuel
             baseUrl = baseUrl.replace(/\/+$/, "");

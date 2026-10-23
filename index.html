@@ -1,277 +1,332 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Remerciements – RAKOTONDRAIBE Manitra Harivony</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remerciements – RAKOTONDRAIBE Manitra Harivony • Master MISEI 2026</title>
+    <meta name="description" content="Message de remerciement personnel de RAKOTONDRAIBE Manitra Harivony à l'occasion de sa soutenance de Master MISEI à l'Université d'Antananarivo.">
 
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #f7f5f0;
-    color: #1b2d21;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-  }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  .card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 32px 28px;
-    max-width: 520px;
-    width: 100%;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-    border: 1px solid #e4ece5;
-  }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        botanical: {
+                            50:  '#f4f7f4',
+                            100: '#e3ebe3',
+                            200: '#c7d8c7',
+                            300: '#a2be9a',
+                            400: '#799f7a',
+                            500: '#568058',
+                            600: '#416543',
+                            700: '#355137',
+                            800: '#2c422e',
+                            900: '#263728',
+                        },
+                        gold: { 400: '#d4b35e', 600: '#aa8233', 700: '#876226' },
+                        sand: '#fbf9f5',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans:  ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-  /* Header */
-  .header {
-    text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 22px;
-  }
-  .header-label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #876226;
-    margin-bottom: 6px;
-  }
-  .role-badge {
-    display: inline-block;
-    background: #f4f7f4;
-    border: 1px solid #cadacb;
-    border-radius: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: #324f3b;
-    padding: 3px 12px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .recipient-name {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1b2d21;
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-  .recipient-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    color: #666;
-  }
-
-  /* Message */
-  .message {
-    font-style: italic;
-    font-size: 16px;
-    color: #263d2e;
-    line-height: 1.6;
-    text-align: center;
-    padding: 16px 0 12px 0;
-    border-bottom: 1px solid #f0ede8;
-    margin-bottom: 18px;
-  }
-
-  /* Verse */
-  .verse-box {
-    background: linear-gradient(135deg, #fdf9ef 0%, #f4f7f4 100%);
-    border: 1px solid #dfcf89;
-    border-radius: 14px;
-    padding: 16px 18px;
-    text-align: center;
-    margin-bottom: 22px;
-  }
-  .verse-label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #876226;
-    margin-bottom: 8px;
-  }
-  .verse-text {
-    font-size: 15px;
-    font-style: italic;
-    font-weight: 600;
-    color: #1b2d21;
-    line-height: 1.6;
-    margin-bottom: 6px;
-  }
-  .verse-ref {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #876226;
-  }
-
-  /* Info grid */
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  .info-box {
-    background: #f8faf8;
-    border: 1px solid #e4ece5;
-    border-radius: 10px;
-    padding: 10px 12px;
-  }
-  .info-box-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #547d60;
-    margin-bottom: 4px;
-  }
-  .info-box-text {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    color: #333;
-    line-height: 1.4;
-  }
-  .info-box-text strong { color: #1b2d21; }
-
-  /* Signature */
-  .signature {
-    text-align: center;
-    border-top: 1px solid #eee;
-    padding-top: 16px;
-  }
-  .signature-label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 4px;
-  }
-  .signature-name {
-    font-size: 20px;
-    font-weight: 700;
-    color: #1b2d21;
-  }
-  .signature-sub {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    color: #666;
-    margin-top: 2px;
-  }
-
-  /* Error state */
-  .error-state {
-    text-align: center;
-    padding: 40px 20px;
-    color: #c00;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-</style>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbf9f5; color: #2c422e; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+        .glass-card {
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(227,235,227,0.85);
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0) rotate(0deg); }
+            50%     { transform: translateY(-8px) rotate(3deg); }
+        }
+        @keyframes fadein {
+            from { opacity:0; transform:translateY(12px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        .animate-float  { animation: float 5s ease-in-out infinite; }
+        .animate-fadein { animation: fadein 0.5s ease both; }
+        .gold-badge { background:linear-gradient(135deg,#fdf3dc,#fef9ef); border:1px solid #dfcf89; color:#876226; }
+        .verse-box  { background:linear-gradient(135deg,#fdf9ef,#f4f7f4); border-left:4px solid #d4b35e; }
+        .card-transition { transition: opacity .3s ease, transform .3s ease; }
+        .card-hidden     { opacity:0; transform:translateY(8px); }
+    </style>
 </head>
-<body>
-<div class="card">
 
-  <div class="header">
-    <div class="header-label">Université d'Antananarivo &bull; Master MISEI</div>
-    <div class="role-badge" id="role">Présidente du Jury</div>
-    <div class="recipient-name" id="name">Madame RANDRIAMANANTANY Zely Arivelo</div>
-    <div class="recipient-title" id="title">Professeur à la Faculté des Sciences</div>
-  </div>
+<body class="min-h-screen flex flex-col justify-between selection:bg-botanical-200">
 
-  <div class="message" id="message">
-    <!-- rempli par JS -->
-  </div>
+    <!-- HEADER -->
+    <header class="w-full py-5 px-4 sm:px-8 border-b border-botanical-100 bg-white/70 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-botanical-100 flex items-center justify-center text-botanical-700 shadow-sm">
+                    <i class="fa-solid fa-seedling text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-serif font-bold text-base sm:text-lg text-botanical-900 leading-tight">Soutenance Master MISEI</h1>
+                    <p class="text-xs text-botanical-600">Université d'Antananarivo · 2026</p>
+                </div>
+            </div>
+            <button onclick="shareCard()"
+                class="text-xs bg-botanical-50 hover:bg-botanical-100 text-botanical-800 py-2 px-3.5 rounded-full border border-botanical-200 transition-all flex items-center gap-1.5 shadow-sm active:scale-95">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span class="hidden sm:inline">Partager</span>
+            </button>
+        </div>
+    </header>
 
-  <div class="verse-box">
-    <div class="verse-label">✝ Bénédiction ✝</div>
-    <div class="verse-text">
-      « Que l'Éternel te bénisse, et qu'il te garde !<br>
-      Que l'Éternel fasse luire sa face sur toi,<br>
-      et qu'il t'accorde sa grâce !<br>
-      Que l'Éternel tourne sa face vers toi,<br>
-      et qu'il te donne la paix ! »
+    <!-- MAIN -->
+    <main class="max-w-3xl mx-auto w-full px-4 py-8 sm:py-12 space-y-6 flex-grow">
+
+        <!-- Sélecteur destinataire -->
+        <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-botanical-100">
+            <label for="profSelector" class="block text-xs uppercase tracking-wider text-botanical-600 font-semibold mb-2">
+                <i class="fa-solid fa-user-graduate mr-1 text-gold-600"></i> Destinataire :
+            </label>
+            <select id="profSelector" onchange="changeProf(this.value)"
+                class="w-full bg-sand border border-botanical-200 text-botanical-900 text-sm rounded-xl focus:ring-2 focus:ring-botanical-400 focus:border-botanical-400 p-3 font-medium cursor-pointer transition-all outline-none">
+                <option value="0">Mme RANDRIAMANANTANY Zely Arivelo — Présidente du Jury</option>
+                <option value="1">M. RAKOTOARIMANANA Liva Graffin — Encadreur Pédagogique</option>
+                <option value="2">M. CLERK — Examinateur du Jury</option>
+                <option value="3">M. ANDRIANAIVO Rivo Nirina — Encadreur Professionnel</option>
+            </select>
+        </section>
+
+        <!-- Carte remerciement -->
+        <section id="mainCard" class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden card-transition animate-fadein">
+            <div class="absolute -right-10 -bottom-10 opacity-[0.07] text-botanical-700 pointer-events-none select-none">
+                <i class="fa-solid fa-leaf text-[220px]"></i>
+            </div>
+
+            <div class="mb-6 border-b border-botanical-100 pb-6">
+                <span id="profRole" class="gold-badge inline-block px-3 py-1 text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+                    Présidente du Jury
+                </span>
+                <h2 id="profName" class="serif-title text-2xl sm:text-3xl font-bold text-botanical-900">
+                    Madame RANDRIAMANANTANY Zely Arivelo
+                </h2>
+                <p id="profTitle" class="text-sm text-botanical-600 mt-1 font-medium">
+                    Professeur à la Faculté des Sciences
+                </p>
+            </div>
+
+            <div class="space-y-4 text-botanical-800 leading-relaxed text-sm sm:text-base">
+                <p id="profMessage" class="italic font-serif text-lg sm:text-xl text-botanical-900 mb-4 leading-relaxed">
+                    « Chère Madame la Présidente, c'est un immense honneur de vous compter à la présidence de ce jury. Merci infiniment pour votre présence et pour l'évaluation attentive de mes travaux. »
+                </p>
+                <p>
+                    Cette petite plante succulente représente la persévérance, la croissance et l'apprentissage continu — des valeurs que vous incarnez et qui ont guidé mon parcours académique.
+                </p>
+                <p>
+                    Veuillez accepter ce humble symbole de gratitude pour votre engagement auprès des étudiants et l'honneur de votre présence à cette soutenance.
+                </p>
+            </div>
+
+            <!-- Verset -->
+            <div class="verse-box mt-6 p-4 sm:p-5 rounded-2xl">
+                <p class="text-xs font-bold uppercase tracking-widest text-gold-700 mb-2">✝ Bénédiction ✝</p>
+                <p class="italic font-serif text-base text-botanical-900 leading-relaxed">
+                    « Que l'Éternel te bénisse, et qu'il te garde !<br>
+                    Que l'Éternel fasse luire sa face sur toi, et qu'il t'accorde sa grâce !<br>
+                    Que l'Éternel tourne sa face vers toi, et qu'il te donne la paix ! »
+                </p>
+                <p class="text-xs font-bold text-gold-700 mt-2 uppercase tracking-wider">— Nombres 6 : 24-26 —</p>
+            </div>
+
+            <!-- Signature -->
+            <div class="mt-8 pt-6 border-t border-botanical-100 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-botanical-500 uppercase tracking-wider font-semibold">Avec toute ma gratitude,</p>
+                    <p class="font-serif font-bold text-xl text-botanical-900 mt-0.5">RAKOTONDRAIBE Manitra Harivony</p>
+                    <p class="text-xs text-botanical-600 mt-0.5">Diplômé Master Ingénierie · MISEI 2026</p>
+                </div>
+                <div class="w-14 h-14 bg-botanical-50 rounded-2xl flex items-center justify-center animate-float shadow-sm">
+                    <i class="fa-solid fa-heart text-2xl text-red-400"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fiche soutenance -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-botanical-100 space-y-4">
+            <h3 class="serif-title font-bold text-xl text-botanical-900 flex items-center gap-2">
+                <i class="fa-solid fa-book-bookmark text-botanical-500 text-lg"></i>
+                Détails des Travaux Présentés
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="bg-sand p-4 rounded-2xl border border-botanical-100 sm:col-span-2">
+                    <p class="text-xs text-botanical-500 font-semibold uppercase mb-1">Titre du Mémoire</p>
+                    <p class="text-sm font-semibold text-botanical-900">
+                        Plateforme IoT Centralisée — Télésurveillance &amp; Pilotage d'Actionneurs en Temps Réel
+                    </p>
+                </div>
+                <div class="bg-sand p-4 rounded-2xl border border-botanical-100">
+                    <p class="text-xs text-botanical-500 font-semibold uppercase mb-1">Diplôme / Parcours</p>
+                    <p class="text-sm font-semibold text-botanical-900">Master d'Ingénierie · MISEI</p>
+                </div>
+                <div class="bg-sand p-4 rounded-2xl border border-botanical-100">
+                    <p class="text-xs text-botanical-500 font-semibold uppercase mb-1">Université</p>
+                    <p class="text-sm font-semibold text-botanical-900">Université d'Antananarivo</p>
+                </div>
+                <div class="bg-sand p-4 rounded-2xl border border-botanical-100">
+                    <p class="text-xs text-botanical-500 font-semibold uppercase mb-1">Partenaire Industriel</p>
+                    <p class="text-sm font-semibold text-botanical-900">SNOVIBOX SARL</p>
+                </div>
+                <div class="bg-sand p-4 rounded-2xl border border-botanical-100">
+                    <p class="text-xs text-botanical-500 font-semibold uppercase mb-1">Année</p>
+                    <p class="text-sm font-semibold text-botanical-900">2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide plante -->
+        <section class="bg-botanical-800 text-white rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 opacity-10 pointer-events-none select-none">
+                <i class="fa-solid fa-seedling text-[140px]"></i>
+            </div>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-botanical-700/80 flex items-center justify-center text-botanical-200">
+                    <i class="fa-solid fa-sun text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="serif-title text-xl font-bold">Prenez soin de votre plante 🌱</h3>
+                    <p class="text-xs text-botanical-200">Succulente / Plante grasse d'intérieur</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-botanical-900/50 p-4 rounded-2xl border border-botanical-700/50">
+                    <div class="flex items-center gap-2 text-sky-300 font-semibold text-sm mb-2">
+                        <i class="fa-solid fa-droplet"></i> Arrosage
+                    </div>
+                    <p class="text-xs text-botanical-100 leading-relaxed">
+                        1× toutes les 2-3 semaines. Laissez la terre sécher complètement entre deux arrosages.
+                    </p>
+                </div>
+                <div class="bg-botanical-900/50 p-4 rounded-2xl border border-botanical-700/50">
+                    <div class="flex items-center gap-2 text-amber-300 font-semibold text-sm mb-2">
+                        <i class="fa-solid fa-lightbulb"></i> Lumière
+                    </div>
+                    <p class="text-xs text-botanical-100 leading-relaxed">
+                        Lumière vive indirecte. Près d'une fenêtre de bureau est idéal.
+                    </p>
+                </div>
+                <div class="bg-botanical-900/50 p-4 rounded-2xl border border-botanical-700/50">
+                    <div class="flex items-center gap-2 text-emerald-300 font-semibold text-sm mb-2">
+                        <i class="fa-solid fa-spa"></i> Symbolique
+                    </div>
+                    <p class="text-xs text-botanical-100 leading-relaxed">
+                        Symbole de persévérance et de mémoire vivante — elle grandira avec votre souvenir.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full py-6 text-center text-xs text-botanical-400 border-t border-botanical-100 bg-white/40">
+        <p>Fait avec ❤️ &amp; gratitude par <strong class="text-botanical-700">RAKOTONDRAIBE Manitra Harivony</strong><br>
+        Soutenance Master MISEI · Université d'Antananarivo · 2026</p>
+    </footer>
+
+    <!-- TOAST -->
+    <div id="toast"
+        class="fixed bottom-6 right-6 bg-botanical-900 text-white text-xs px-4 py-3 rounded-xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-2 z-50">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toastMessage">Lien copié !</span>
     </div>
-    <div class="verse-ref">— Nombres 6 : 24-26 —</div>
-  </div>
 
-  <div class="info-grid">
-    <div class="info-box">
-      <div class="info-box-title">Mémoire IoT</div>
-      <div class="info-box-text">
-        Plateforme IoT centralisée — télésurveillance & pilotage d'actionneurs en temps réel.<br>
-        <strong>Partenaire : SNOVIBOX SARL</strong>
-      </div>
-    </div>
-    <div class="info-box">
-      <div class="info-box-title">Soin de la plante 🌱</div>
-      <div class="info-box-text">
-        <strong>Arrosage :</strong> 1× toutes les 2-3 semaines<br>
-        <strong>Lumière :</strong> Clarté, près d'une fenêtre
-      </div>
-    </div>
-  </div>
+    <script>
+    const jury = [
+        {
+            name: "Madame RANDRIAMANANTANY Zely Arivelo",
+            role: "Présidente du Jury",
+            title: "Professeur à la Faculté des Sciences",
+            message: "« Chère Madame la Présidente, c'est un immense honneur de vous compter à la présidence de ce jury. Merci infiniment pour votre présence et pour l'évaluation attentive de mes travaux. »"
+        },
+        {
+            name: "Monsieur RAKOTOARIMANANA Liva Graffin",
+            role: "Encadreur Pédagogique",
+            title: "Professeur — Responsable du Parcours MISEI",
+            message: "« Cher Professeur, mes plus sincères remerciements pour votre écoute, vos conseils précieux et votre accompagnement rigoureux tout au long de ce parcours MISEI. »"
+        },
+        {
+            name: "Monsieur CLERK",
+            role: "Examinateur du Jury",
+            title: "Docteur en Physique",
+            message: "« Cher Docteur, je vous remercie chaleureusement pour votre présence éclairée au sein de ce jury et pour l'intérêt accordé à mes travaux de recherche en systèmes IoT. »"
+        },
+        {
+            name: "Monsieur ANDRIANAIVO Rivo Nirina",
+            role: "Encadreur Professionnel",
+            title: "Gérant — SNOVIBOX SARL",
+            message: "« Cher Monsieur le Gérant, un grand merci pour votre accueil au sein de SNOVIBOX SARL, votre confiance et votre précieux encadrement sur ce projet IoT. »"
+        }
+    ];
 
-  <div class="signature">
-    <div class="signature-label">Avec toute ma gratitude</div>
-    <div class="signature-name">RAKOTONDRAIBE Manitra Harivony</div>
-    <div class="signature-sub">Soutenance de Master d'Ingénierie &bull; 2026</div>
-  </div>
+    window.addEventListener('DOMContentLoaded', () => {
+        const params  = new URLSearchParams(window.location.search);
+        const profIdx = parseInt(params.get('prof'));
+        const idx     = (!isNaN(profIdx) && profIdx >= 0 && profIdx < jury.length) ? profIdx : 0;
+        document.getElementById('profSelector').value = idx;
+        renderProf(idx);
+    });
 
-</div>
+    function changeProf(idx) {
+        const card = document.getElementById('mainCard');
+        card.classList.add('card-hidden');
+        setTimeout(() => {
+            renderProf(parseInt(idx));
+            card.classList.remove('card-hidden');
+        }, 200);
+    }
 
-<script>
-const jury = [
-  {
-    name: "Madame RANDRIAMANANTANY Zely Arivelo",
-    role: "Présidente du Jury",
-    title: "Professeur à la Faculté des Sciences",
-    message: "« Chère Madame la Présidente, c'est un immense honneur de vous compter à la présidence de ce jury. Merci infiniment pour votre présence et pour l'évaluation attentive de mes travaux. »"
-  },
-  {
-    name: "Monsieur RAKOTOARIMANANA Liva Graffin",
-    role: "Encadreur Pédagogique",
-    title: "Professeur — Responsable du Parcours MISEI",
-    message: "« Cher Professeur, mes plus sincères remerciements pour votre écoute, vos conseils précieux et votre accompagnement rigoureux tout au long de ce parcours MISEI. »"
-  },
-  {
-    name: "Monsieur CLERK",
-    role: "Examinateur du Jury",
-    title: "Docteur en Physique",
-    message: "« Cher Docteur, je vous remercie chaleureusement pour votre présence éclairée au sein de ce jury et pour l'intérêt accordé à mes recherches. »"
-  },
-  {
-    name: "Monsieur ANDRIANAIVO Rivo Nirina",
-    role: "Encadreur Professionnel",
-    title: "Gérant — SNOVIBOX SARL",
-    message: "« Cher Monsieur le Gérant, un grand merci pour votre accueil au sein de SNOVIBOX SARL, votre confiance et votre précieux encadrement sur ce projet IoT. »"
-  }
-];
+    function renderProf(idx) {
+        const p = jury[idx] || jury[0];
+        document.getElementById('profName').textContent    = p.name;
+        document.getElementById('profRole').textContent    = p.role;
+        document.getElementById('profTitle').textContent   = p.title;
+        document.getElementById('profMessage').textContent = p.message;
+    }
 
-const params = new URLSearchParams(window.location.search);
-const i = parseInt(params.get('prof'));
-const m = (!isNaN(i) && i >= 0 && i < jury.length) ? jury[i] : jury[0];
+    function shareCard() {
+        const idx      = document.getElementById('profSelector').value;
+        const shareUrl = window.location.href.split('?')[0] + '?prof=' + idx;
+        if (navigator.share) {
+            navigator.share({ title:'Remerciements MISEI 2026', url: shareUrl }).catch(()=>{});
+        } else {
+            navigator.clipboard.writeText(shareUrl)
+                .then(() => showToast('Lien copié dans le presse-papier !'))
+                .catch(() => {
+                    const tmp = document.createElement('input');
+                    document.body.appendChild(tmp);
+                    tmp.value = shareUrl; tmp.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tmp);
+                    showToast('Lien copié !');
+                });
+        }
+    }
 
-document.getElementById('name').textContent    = m.name;
-document.getElementById('role').textContent    = m.role;
-document.getElementById('title').textContent   = m.title;
-document.getElementById('message').textContent = m.message;
-</script>
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toastMessage').textContent = msg;
+        toast.classList.remove('opacity-0','pointer-events-none');
+        setTimeout(() => toast.classList.add('opacity-0','pointer-events-none'), 3000);
+    }
+    </script>
 </body>
 </html>
