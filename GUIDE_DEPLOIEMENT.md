@@ -15,8 +15,8 @@
 | **`planche_stickers_3x5cm.pdf`** | **Planche A4 calibrée au format 3 cm × 5 cm** (12 étiquettes : 2 exemplaires pour chacun des 6 destinataires). |
 | **`stickers_3x5cm.html`** | **Planche web d'étiquettes 3 cm × 5 cm** imprimable en 1 clic via `Ctrl + P`. |
 | **`stickers_3x5cm/`** | **Dossier d'images individuelles 3 × 5 cm** à 300 DPI pour chaque pot. |
-| **`ticket.html`** | Planche de 6 cartes avec QR codes scannables. |
 | **`generate_stickers_3x5cm.py`** | Script Python régénérant les formats 3 × 5 cm (PNG, PDF, HTML). |
+| **QR codes individuels** | Chaque PNG contient uniquement le QR code. Écrivez ou collez les noms sur vos propres étiquettes. |
 
 ---
 

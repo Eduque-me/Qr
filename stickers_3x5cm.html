@@ -1,413 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Planche d'Étiquettes 3 cm x 5 cm (30 mm x 50 mm) — 6 Destinataires</title>
-    <style>
-        @page {
-            size: A4 portrait;
-            margin: 10mm 10mm;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #eef2ef;
-            color: #1b2d21;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .no-print {
-            background: white;
-            padding: 16px 24px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-            max-width: 780px;
-            width: 100%;
-            text-align: center;
-        }
-        .no-print h1 {
-            font-size: 18px;
-            color: #1b2d21;
-            margin-bottom: 6px;
-        }
-        .no-print p {
-            font-size: 13px;
-            color: #568058;
-            margin-bottom: 12px;
-        }
-        .btn-print {
-            background: #2a4031;
-            color: white;
-            border: none;
-            padding: 10px 22px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-print:hover {
-            background: #1b2d21;
-        }
-        .instructions {
-            margin-top: 10px;
-            font-size: 11px;
-            color: #876226;
-            background: #fdfaf3;
-            padding: 8px 12px;
-            border-radius: 6px;
-            border: 1px solid #eddcb2;
-            text-align: left;
-            display: inline-block;
-        }
-
-        .a4-sheet {
-            width: 210mm;
-            min-height: 297mm;
-            background: white;
-            padding: 12mm 10mm;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .sheet-header {
-            text-align: center;
-            margin-bottom: 7mm;
-        }
-        .sheet-header h2 {
-            font-size: 13pt;
-            color: #1b2d21;
-            font-weight: bold;
-        }
-        .sheet-header p {
-            font-size: 8pt;
-            color: #568058;
-            margin-top: 2px;
-        }
-
-        .stickers-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 30mm);
-            grid-template-rows: repeat(3, 50mm);
-            gap: 15mm 12mm;
-            justify-content: center;
-        }
-
-        .sticker {
-            width: 30mm;
-            height: 50mm;
-            background: #faf7f2;
-            border: 0.25mm dashed #8fae98;
-            border-radius: 2.5mm;
-            padding: 1.2mm;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            page-break-inside: avoid;
-        }
-        .inner-frame {
-            width: 100%;
-            height: 100%;
-            border: 0.25mm solid #c5a045;
-            border-radius: 2mm;
-            padding: 1mm 1.2mm;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-        }
-        .role {
-            font-size: 4.7pt;
-            font-weight: bold;
-            color: #876226;
-            text-transform: uppercase;
-            letter-spacing: 0.2px;
-            line-height: 1.1;
-        }
-        .name-1 {
-            font-size: 5.5pt;
-            font-weight: bold;
-            color: #1b2d21;
-            line-height: 1.1;
-            margin-top: 0.3mm;
-        }
-        .name-2 {
-            font-size: 5.1pt;
-            color: #2c422e;
-            line-height: 1.1;
-        }
-        .divider {
-            width: 80%;
-            height: 0.2mm;
-            background: #dfcf89;
-            margin: 0.5mm 0;
-        }
-        .scan-label {
-            font-size: 4.2pt;
-            font-weight: bold;
-            color: #416543;
-            letter-spacing: 0.2px;
-            margin-bottom: 0.3mm;
-        }
-        .qr-wrapper {
-            width: 21.5mm;
-            height: 21.5mm;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .qr-wrapper img {
-            width: 21.5mm;
-            height: 21.5mm;
-            display: block;
-        }
-        .divider-bottom {
-            width: 80%;
-            height: 0.2mm;
-            background: #dfcf89;
-            margin: 0.5mm 0 0.3mm 0;
-        }
-        .univ {
-            font-size: 4.1pt;
-            color: #568058;
-            line-height: 1.1;
-        }
-        .author {
-            font-size: 4.3pt;
-            font-weight: bold;
-            color: #1b2d21;
-            line-height: 1.1;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .no-print {
-                display: none;
-            }
-            .a4-sheet {
-                box-shadow: none;
-                padding: 8mm 10mm;
-                min-height: auto;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planche QR codes 3 x 5 cm</title>
+<style>
+@page { size: A4 portrait; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #fff; font-family: Arial, sans-serif; }
+.toolbar { padding: 16px; text-align: center; }
+.toolbar button { padding: 10px 18px; font-weight: bold; cursor: pointer; }
+.sheet {
+  width: 210mm; min-height: 297mm; margin: 0 auto; padding: 33mm 18mm;
+  display: grid; grid-template-columns: repeat(4, 30mm); grid-template-rows: repeat(3, 50mm);
+  gap: 15mm 12mm; justify-content: center;
+}
+.sticker {
+  width: 30mm; height: 50mm; border: 0.2mm dashed #999;
+  display: flex; align-items: center; justify-content: center;
+  page-break-inside: avoid;
+}
+.sticker img { width: 24mm; height: 24mm; display: block; }
+@media print {
+  .toolbar { display: none; }
+  .sheet { width: 210mm; height: 297mm; min-height: 297mm; }
+}
+</style>
 </head>
 <body>
-
-<div class="no-print">
-    <h1>🏷️ Planche d'Étiquettes Format Réel 3 cm × 5 cm (6 Destinataires)</h1>
-    <p>12 étiquettes (2 exemplaires pour chacun des 6 membres du jury et encadrants SNOVIBOX).</p>
-    <button class="btn-print" onclick="window.print()">🖨️ Imprimer la planche (Ctrl + P)</button>
-    <div class="instructions">
-        <strong>📏 CONSEIL POUR UNE TAILLE EXACTE À 100% :</strong><br>
-        Dans la boîte d'impression du navigateur (Ctrl + P) :<br>
-        • Échelle : <strong>100%</strong> ou <strong>Par défaut</strong> (Ne <u>pas</u> cocher « Ajuster à la page »).<br>
-        • Marges : <strong>Aucune</strong> ou <strong>Par défaut</strong>.
-    </div>
+<div class="toolbar">
+  <button onclick="window.print()">Imprimer la planche</button>
 </div>
+<div class="sheet">
+<div class="sticker"><img src="stickers_3x5cm/pot_1_presidente_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_2_encadreur_ped_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_3_examinateur_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_4_encadreur_pro_ANDRIANAIVO_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_5_encadreur_pro_RALAMBOSOA_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_6_encadreur_pro_RANDRIAMANANTENA_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_1_presidente_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_2_encadreur_ped_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_3_examinateur_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_4_encadreur_pro_ANDRIANAIVO_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_5_encadreur_pro_RALAMBOSOA_3x5cm.png" alt="QR code destinataire"></div>
+<div class="sticker"><img src="stickers_3x5cm/pot_6_encadreur_pro_RANDRIAMANANTENA_3x5cm.png" alt="QR code destinataire"></div>
 
-<div class="a4-sheet">
-    <div class="sheet-header">
-        <h2>Planche d'Étiquettes 30 mm × 50 mm (3 cm × 5 cm)</h2>
-        <p>Jury Universitaire & Encadrants SNOVIBOX • Master MISEI 2026 • RAKOTONDRAIBE Manitra H.</p>
-    </div>
-    <div class="stickers-grid">
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Présidente du Jury</div>
-                <div class="name-1">Mme RANDRIAMANANTANY</div>
-                <div class="name-2">Zely Arivelo</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD30lEQVR4nO3dMZLUMBRF0R6KjXgFZOw/JmMF3gMJVUQswAF69v+SpjknpBraQ99Sj0q29PHn968XjPky+DqQCxmjCwG5EJALga/XPzq+f3utc/74+c/rGXlN3/XcM3KFM3+uEdfrMboQkAsBuRCQCwG58Gxm1Dc7uNp/RrPbrOdc+lkYXQjIhYBcCMiFgFyonhldzfytfrd52Xm5npFZz8jK1/6fhdGFgFwIyIWAXAjIhf6Z0UxVKzIjc4F7KzvH0vv9ZjK6EJALAbkQkAsBufBeM6ORGc3MdZPjLeY49xhdCMiFgFwIyIWAXOifGc18iqfPyFpP37ysyszPwuhCQC4E5EJALgTkQvXMaO1v/n33xe3/mt0+C6MLAbkQkAsBuRCQC4GP/c8z6tv5re9poPMt1tSujC4E5EJALgTkQkAuVJ9ntHbeUfXua3dOOCbuI9H3CRpdCMiFgFwIyIWAXNhjB4aq3+r77l4bUbVbXZWqWeG9n8voQkAuBORCQC4E5MKzmdHMFaK+u9fWniF7tK31rJ1PGV0IyIWAXAjIhYBcePac0cw7uKruHxu5nquqHQ/OpXe4VRm5QqMLAbkQkAsBuRCQC/17081cy5g5X7i30nQU/f+snWFZM6KYLyMCciEgFwJyYcVzRlVzgZm7IlQ5l67jjFzPyNNbI/+O0YWAXAjIhYBcCMiF6ueMrqrmL7udDTTzRKFj6frUPUYXAnIhIBcCciEgF1Y8Z3S19omhvlnP+d8893RldCEgFwJyISAXAnJhj73pRlTtpD3ymr47087NdhHvW1cyuhCQCwG5EJALAbnQ/5zR2nveRvTd83a27afXdz1V/xtGFwJyISAXAnIhIBc+z67dVzPP/Vl75tGI3fZCN7oQkAtyoYfRhYBc6N+BYe3f2t8x8dkoOzCwKV9GBORCQC4E5MKzNaOZTwPtdrbpiHPpXYJVrBnRzpcRAbkQkAsBuVA9M1prt3vw1q4Q3Xv3e5xnxCO+jAjIhYBcCMiFZ3fTfca1jJmnBR0T90Comj1VzcuMLgTkQkAuBORCQC5U70232/1sI6pmK2tPVj3b3svddLTzZURALgTkQkAu9O/a3ffkUd8cZ7cZzdG2t7a96diCLyMCciEgFwJyoX9mNNPMc2Znntk64t579e27bnQhIBcCciEgFwJy4b1mRlcz5y9rz3UdMXP3CaMLAbkQkAsBuRCQCytOer1n7amyI9b+7Mdm99cZXQjIhYBcCMiFgFyoXjNau1td1Qyi7xyis2hGs9tq1JXRhYBcCMiFgFwIyIX3Os+IfRhdCMiFgFwIyIWAXHiN+wvQUSy9HxytvQAAAABJRU5ErkJggg==" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Pédagogique</div>
-                <div class="name-1">M. RAKOTOARIMANANA</div>
-                <div class="name-2">Liva Graffin</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD5UlEQVR4nO3dQY7UMBAF0AFxkZyAHfdfs+MEuQMbJFYcoBf4Z6rKntF7S9TqhPSXMyXb5S9///x+gzVfFz8H4kLG6EJAXAiIC4Fvr/90/fj+ts/989d/7+f1M5OuhedTdYen/RZGFwLiQkBcCIgLAXHhfZXRq75K5FmV0VcrrXzzvXCtvjvc+1sYXQiICwFxISAuBMSF6sqoai7j2V/1K1XGs8/svcO+q694di2jCwFxISAuBMSFgLjQXxlNelZlVFUr56+4m2R0ISAuBMSFgLgQEBc+V2VU5bQ9Ox+R0YWAuBAQFwLiQkBc6K+MJv/Or1pN13c/e5/P5LWMLgTEhYC4EBAXAuJCdWW0d7bl/ArrLtr39Ky3wySjCwFxISAuBMSFgLgQ+PIRzzOqqg6qdh7dbX0bTmN0ISAuBMSFgLgQEBeqzzPqW71WtTJt8urXo/4PK9+8omqm6dlvanQhIC4ExIWAuBAQF07dZ9TXL66vwurrg3cNroures5GFwLiQkBcCIgLAXHhfZVR1W6XvhNR966Cq/qevrmeZ1d30ivFvIwIiAsBcSEgLrxvn1HfXMbeWmDFaV3v7sN2MBldCIgLAXEhIC4ExIUzzjOqmnvaWyt9jl55K+wzopiXEQFxISAuBMSFM1bTreibfzntPKOr6IlN9r54ZXQhIC4ExIWAuBAQF3Z07a6a2dlb0Uy6B3vKrTBnRDEvIwLiQkBcCIgL1fuM+noprJi8n70zMqfte3pldCEgLgTEhYC4EBAXqueM9p6hM1lzrbgPq5WqmDOimJcRAXEhIC4ExIX+DgxVe20mq4zJeuou6uO9cgrS5L4wowsBcSEgLgTEhYC4sKNr997+0n33PHmHd1uNU/U/NboQEBfEhR5GFwLiwqkdGKpMrtPb24nuts+Ij8vLiIC4EBAXAuJC/5zR5Jmtp80irTjtDKaqCsvoQkBcCIgLAXEhIC7smDPq01dB7O2bfR22ktBqOop5GREQFwLiQkBceF8Hhr3n/qxUB5MzVivuresGJ+/H6EJAXAiICwFxISAuVPem23v6alWft5XPrNzPNdhpfPKsohVGFwLiQkBcCIgLAXHhjK7dr047h6iqu8JVND9VNYfV1w3D6EJAXAiICwFxISAu9FdGe03OpPSdH3S37Vda+cyzZ2h0ISAuBMSFgLgQEBc+V2V0Wv/ta3DG6pm+c5GMLgTEhYC4EBAXAuJCf2U0OWszWQc9u5/JdXFVz8ecEe28jAiICwFxISAuVFdGe7vVTa4Wq3IX1VyTHfZ07aaYlxEBcSEgLgTEhc91nhHnMLoQEBcC4kJAXAiIC2/r/gFR4R1ZzSu5XQAAAABJRU5ErkJggg==" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Examinateur du Jury</div>
-                <div class="name-1">M. RANDRIANJAFINIARIVO</div>
-                <div class="name-2">Clerc</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD8klEQVR4nO3dMY7bMBAF0N0gF9EJ0uX+dbqcQHdIEyBVDqCGn54hucZ7ZbCWtZuPsQcUh5///v75gDHfBn8OxIWM6kJAXAiIC4Hvz3+6fv742Of+9bvkOnO/xfPdR65zD9zz8zpzr1rpeYeqCwFxISAuBMSFgLjwWmfU163MffOv6k2q7uee6p6q7P2/UF0IiAsBcSEgLgTEherOqG9FZu5V5/dKI+ZWkUauM2LuvVQXAuJCQFwIiAsBcaG/M9prpFfqW1sZMXI/e+9wjupCQFwIiAsBcSEgLrxXZ1T1hNv5vdL5VBcC4kJAXAiICwFxob8zWvmt/rQO4ppaD+rbi7Ty76O6EBAXAuJCQFwIiAvVndHeCWkjncjen3mqeq+RK6+kuhAQFwLiQkBcCIgLgc93Pc9ob29yb50a0Ud1ISAuBMSFgLgQEBde64xOW6PZOy/uK07bvtvOV1JdCIgLAXEhIC4ExIXqNaO9U7L7vufPudqmbfd1jlWvUl0IiAsBcSEgLgTEhdf2GfXttelTNfFg5clEd9tftW/+g+pCQFwIiAsBcSEgLlQ/Tff0FZ+d61tXutp+97n36ruO6kJAXAiICwFxISAuvLZmVNWt7F0B2TvDbUTfHXqajiP4MCIgLgTEhYC4UP003YivOJV65S6ee+vzflX3o7oQEBcC4kJAXAiIC9XnGfV1NFVdxoiVT9xdbafBVnWOc9dRXQiICwFxISAuBMSF6qfp+r7n980KqLpy1TyKvfueRthnRDEfRgTEhYC4EBAXqteMnuZ6pZHrjOg7R7WqW7kX9jgr50ioLgTEhYC4EBAXAuJC/9N0z2/Rc9/hV85VO2063N4TbO0zop0PIwLiQkBcCIgL/ecZPVXtmqnaZ9Q3Sftum8g98l5PKyddqC4ExAVxoYfqQkBceO08o6e+b/4j+nYezbm2zu4b0dcVqi4ExIWAuBAQFwLiQvVJryvPLd3bU6ycwNCn76+huhAQFwLiQkBcCIgL1WtGe1X1Jqd1WKftIRq5H9WFgLgQEBcC4kJAXNhx0muVqikNc33Q3tkOT333Y58R7XwYERAXAuJCQFzYcdLrnL4urO/U1Gvheawr93ONUF0IiAsBcSEgLgTEhR3nGY1YOSW7as1o5VNw1/H9lOpCQFwIiAsBcSEgLvR3Riv1TcDuOx925VlOfa96Ul0IiAsBcSEgLgTEhffqjEbWes6fiX21rT2tPOFIdSEgLgTEhYC4EBAX+jujlftf+rqevtkOVU6b7aC6EBAXAuJCQFwIiAvV5xmttLLv2LuK1KfvCUDVhYC4EBAXAuJCQFx4r/OMOIfqQkBcCIgLAXEhIC58jPsPhU0xkbrPJPEAAAAASUVORK5CYII=" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Professionnel</div>
-                <div class="name-1">M. ANDRIANAIVO</div>
-                <div class="name-2">Rivo Nirina (Gérant)</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD8klEQVR4nO3dsXHcMBAFUMnjRliBM/cfO3MF7EGJZhS5AAbC5+0CuPN7oYYieXd/QO6AXLx/fX68wZgfg9uBuJAxuhAQFwLiQuDn9U/H719v65x//n57PiPbjOx5xMjR++z2WxhdCIgLAXEhIC4ExIXHKqOrvlrgXkVTVS+MVD1Vn/0oqt3W/hZGFwLiQkBcCIgLAXGhujK6uleb9N3Vj+z53tzTvT3vVtFUnY/RhYC4EBAXAuJCQFzor4xmGrnzr6poqp7TOy7/tfapvCpGFwLiQkBcCIgLAXHhtSqjtW8nVTmfsA66MroQEBcC4kJAXAiIC/2V0W73+VXzSve2OW4dvepbnflbGF0IiAsBcSEgLgTEherKaG2HtP1niM6J57P2tzC6EBAXAuJCQFwIiAuPVUa7zQeNmNnV7Szq23DvWGsZXQiICwFxISAuBMSF6vWM+lYC6psBmdnZe7du5CPHuvdJjS4ExIWAuBAQFwLiQuD96/Pj242q7th36xe3f22ylsqIh7gYERAXAuJCQFxYMWdU1YVgRFWngr7zOSZ2hKhipVeKuRgREBcC4kJAXHitlV77esrdO8OjaK2i/b+NK6MLAXEhIC4ExIWAuLBrB4bdnhZb62h7F6mv+7fRhYC4EBAXAuJCQFx47D2jvg4MVzP3vLYuO9s+aR/vGfEQFyMC4kJAXAiICyueprveRff1W6hafbWvK8JZ9Nmr9jyyH+8ZUczFiIC4EBAXAuJCf2VUdeff967Nbr2+Z+qr+IwuBMSFgLgQEBcC4kJ1ZdTXRW3m2kkj/3XV1zP8GVeVNboQEBcC4kJAXAiIC9XvGe22VtHI0dc+Tbfbe0ZV34/RhYC4EBAXAuJCQFyoXum1ysxe3yN2e4doRN/c3Mg2RhcC4oK40MPoQkBceOb1jNaukdo3s3MUPYO3dpVbowsBcSEgLgTEhYC48FhltLbqqepNt1tPhrOon17Vr6M3He1cjAiICwFxISAu7LrS68w979aT4Zi4ulPf92x0ISAuBMSFgLgQEBdWzBlVmfkWz9paacTM+m6E0YWAuBAQFwLiQkBcqH7PaG0PhKrn0F6j+/fa6tLoQkBcCIgLAXEhIC48cweGkWP1Pc927+hnW2eJe/qerzO6EBAXAuJCQFwIiAv9ldFMM7ux9T0Xd06cM6o6H127eYiLEQFxISAuBMSF16qMRlR1tFvbf/tomzOqYnQhIC4ExIWAuBAQF/oro765jHtmroJ0LF1x6R7rGbGAixEBcSEgLgTEherKaG23upnrK1XVJufSN6ru0YGBYi5GBMSFgLgQEBcC71+fH8n2/NeMLgTEhYC4EBAXAuLC27h/sJMWryb8KqoAAAAASUVORK5CYII=" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Professionnel</div>
-                <div class="name-1">M. RALAMBOSOA</div>
-                <div class="name-2">Toavina</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD6UlEQVR4nO3dvY0bMRAG0DvDjWwFztx/7MwVbA9ODDhyAZvwo2ZInvBeeJBWK92HkQb8+/z3988HjPk2+DgQFzKqCwFxISAuBL4//3T9/PGxz/3rd8l15t7F89VHrnMP3PPzOnPPWul5h6oLAXEhIC4ExIWAuPBaZ9TXrcz98h/pKeYeM3c/99SVq+z9X6guBMSFgLgQEBcC4kJ1Z9Q3ItP3rL6xnr477HunT3OvpboQEBcC4kJAXAiIC/2d0V5VI0R77/BuG/3po7oQEBcC4kJAXAiIC+/VGVX1QXs7katohGgv1YWAuBAQFwLiQkBc6O+MVv6qrxoPqhpFuqbGg/rGsFb+L1QXAuJCQFwIiAsBcaG6Mzp/ZtrexzxVvdbIlVdSXQiICwFxISAuBMSFwOd7nGdU1S/07clwHT/fb4TqQkBcCIgLAXEhIC681hmdNkazsg/6inPerqLPcORZqgsBcSEgLgTEhYC4UN0Z9dnbT5222/a99Z2OPEt1ISAuBMSFgLgQEBeqZ9P1/dLu23+7bz7btfCEozl9n6HqQkBcCIgLAXEhIC681zqjld3TnKtt9Gfutfquo7oQEBcC4kJAXAiIC1/nPKOqE1H7OpE+V9usRbPpOIIvIwLiQkBcCIgLOzqjuTlmX3Hc5Jp61mnjXHP3o7oQEBcC4kJAXAiIC691Rn2/2Pv2u957xtDK02D7zqsdoboQEBcC4kJAXAiIC691RlWjG307cvfd4chj7q2fz9yVR1hnRDFfRgTEhYC4EBAXqmfTjfQCe/ug03b2vhf2OCv3kVBdCIgLAXEhIC4ExIXqzui0fdX27slwbR3rWXl20pPqQkBcCIgLAXEhIC5UrzNaeTbQyhOF+vZSuNv2SVj5GT6pLgTEBXGhh+pCQFzYsc5o5ayzvfu8XUWrk6rup6pTs86IYr6MCIgLAXEhIC68dtLrypNV3/UU1736Tm5SXQiICwFxISAuBMSF1zqj0/TNnZu7zruuIRq5H9WFgLgQEBcC4kJAXNhxnlGVlef+nLaj3VPf/VhnRDtfRgTEhYC4EBAX+nftrtI3U25up/ER18LzWPs++TmqCwFxISAuBMSFgLhQ3Rk9nbbjwZyq7ukuel/n91OqCwFxISAuBMSFgLjQ3xmttHfHg74VTPfCPrHqE1NdCIgLAXEhIC4ExIX36oz6zldauYrnWrj/Q98JR6oLAXEhIC4ExIWAuNDfGa1c/1J1Fk/fXLWrbQzrtL0dVBcC4kJAXAiICwFxoboz2rtbXdWappUdzd22n97e3b9VFwLiQkBcCIgLAXHhvc4z4hyqCwFxISAuBMSFgLjwMe4/qy4uT/8y7rAAAAAASUVORK5CYII=" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Professionnel</div>
-                <div class="name-1">M. RANDRIAMANANTENA</div>
-                <div class="name-2">Herman</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD/UlEQVR4nO3du5FUMRAF0F2KRBQBHvnbeEQwOeBQhUUAcnT11JIYzjGp3fmwt3qmS1Lr88/vXx8w5svgz4G4kFFdCIgLAXEh8LX/p/b928c5rx8/lzxO/y76R577mbnXPPJcI7+1U/8KVRcC4kJAXAiICwFx4VlnVNetzH3zr+tNVj1X29i/nP1bqC4ExIWAuBAQFwLiwurOqDfXC8x9qx/pRFatENX1Zb251zPyOCPmnkt1ISAuBMSFgLgQEBfqO6OzVvVKddrAs+98PauoLgTEhYC4EBAXAuLCe3VGc13G2RM6vbOd2iqqCwFxISAuBMSFgLhQ3xnt/FY/ty+urldql3VqO/8WqgsBcSEgLgTEhYC4sLozOrv+UneGqG5aXTt67qmO6kJAXAiICwFxISAuBD7/n/uMVk0qaGXz6+7fX6e6EBAXAuJCQFwIiAvPOqO6m4BWrZvcNufttmnbdfcrqS4ExIWAuBAQFwLiwuo1o7M9zoidazRtYze3s+sZ+S3VhYC4EBAXAuJCQFxYvWbUqzsRs7PLmHv2trHnmrNq/oPOiEd8GBEQFwLiQkBcqD9nVLcqsXPCwKodbu0t9g3aTcdiPowIiAsBcSEgLtTPprutD7p/dkGvrge0m44r+DAiIC4ExIWAuPCsMzq7alM3+W3u9fRa2YTwnT3g3OtRXQiICwFxISAuBMSFZ53RyHfms1MIenVrWHXv67XopqQ5c4+juhAQFwLiQkBcCIgLd6wZ7VxJqVtpqtsT2BZ1YSOPPMI5IxbzYURAXAiICwFxYfU5o97Oc0Z1Z4jq1oxeG3ucnXMkVBcC4kJAXAiICwFxYfVuuttmMtSttty/1vM6umtRdSEgLgTEhYC4EBAXVu+mq+s76vaznZ2l8Cqbk9Bb9d5HqC4ExAVxoYbqQkBcqJ/AUPczO2cO1N3H2hb1XCNW/T87Z8RiPowIiAsBcSEgLjy76bXufNDZ3WJzbruddkTdGp/qQkBcCIgLAXEhIC4864xus7NTO7tv8HX0DNHI61FdCIgLAXEhIC4ExIV/56bX3qp7f+4/rzTi7KSLnupCQFwIiAsBcSEgLqye2n12JWVO3QmmtvE+1p0z90aoLgTEhYC4EBAXAuJC/X1GdXeJzj1X3UrKzl1w7fp+SnUhIC4ExIWAuBAQF+o7o53O7mdbtfb0GtglOKJunWuE6kJAXAiICwFxISAuvFdnVLfjbud5pVa29tSrm46uuhAQFwLiQkBcCIgL9Z3RzvMvO+/rqZtGPue22Q6qCwFxISAuBMSFgLiwujM6O61u5/6xuj14bdHchrPTv1UXAuJCQFwIiAsBceG97jPiHqoLAXEhIC4ExIWAuPAx7i81Si/hzaWtqAAAAABJRU5ErkJggg==" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Présidente du Jury</div>
-                <div class="name-1">Mme RANDRIAMANANTANY</div>
-                <div class="name-2">Zely Arivelo</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD30lEQVR4nO3dMZLUMBRF0R6KjXgFZOw/JmMF3gMJVUQswAF69v+SpjknpBraQ99Sj0q29PHn968XjPky+DqQCxmjCwG5EJALga/XPzq+f3utc/74+c/rGXlN3/XcM3KFM3+uEdfrMboQkAsBuRCQCwG58Gxm1Dc7uNp/RrPbrOdc+lkYXQjIhYBcCMiFgFyonhldzfytfrd52Xm5npFZz8jK1/6fhdGFgFwIyIWAXAjIhf6Z0UxVKzIjc4F7KzvH0vv9ZjK6EJALAbkQkAsBufBeM6ORGc3MdZPjLeY49xhdCMiFgFwIyIWAXOifGc18iqfPyFpP37ysyszPwuhCQC4E5EJALgTkQvXMaO1v/n33xe3/mt0+C6MLAbkQkAsBuRCQC4GP/c8z6tv5re9poPMt1tSujC4E5EJALgTkQkAuVJ9ntHbeUfXua3dOOCbuI9H3CRpdCMiFgFwIyIWAXNhjB4aq3+r77l4bUbVbXZWqWeG9n8voQkAuBORCQC4E5MKzmdHMFaK+u9fWniF7tK31rJ1PGV0IyIWAXAjIhYBcePac0cw7uKruHxu5nquqHQ/OpXe4VRm5QqMLAbkQkAsBuRCQC/17081cy5g5X7i30nQU/f+snWFZM6KYLyMCciEgFwJyYcVzRlVzgZm7IlQ5l67jjFzPyNNbI/+O0YWAXAjIhYBcCMiF6ueMrqrmL7udDTTzRKFj6frUPUYXAnIhIBcCciEgF1Y8Z3S19omhvlnP+d8893RldCEgFwJyISAXAnJhj73pRlTtpD3ymr47087NdhHvW1cyuhCQCwG5EJALAbnQ/5zR2nveRvTd83a27afXdz1V/xtGFwJyISAXAnIhIBc+z67dVzPP/Vl75tGI3fZCN7oQkAtyoYfRhYBc6N+BYe3f2t8x8dkoOzCwKV9GBORCQC4E5MKzNaOZTwPtdrbpiHPpXYJVrBnRzpcRAbkQkAsBuVA9M1prt3vw1q4Q3Xv3e5xnxCO+jAjIhYBcCMiFZ3fTfca1jJmnBR0T90Comj1VzcuMLgTkQkAuBORCQC5U70232/1sI6pmK2tPVj3b3svddLTzZURALgTkQkAu9O/a3ffkUd8cZ7cZzdG2t7a96diCLyMCciEgFwJyoX9mNNPMc2Znntk64t579e27bnQhIBcCciEgFwJy4b1mRlcz5y9rz3UdMXP3CaMLAbkQkAsBuRCQCytOer1n7amyI9b+7Mdm99cZXQjIhYBcCMiFgFyoXjNau1td1Qyi7xyis2hGs9tq1JXRhYBcCMiFgFwIyIX3Os+IfRhdCMiFgFwIyIWAXHiN+wvQUSy9HxytvQAAAABJRU5ErkJggg==" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Pédagogique</div>
-                <div class="name-1">M. RAKOTOARIMANANA</div>
-                <div class="name-2">Liva Graffin</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD5UlEQVR4nO3dQY7UMBAF0AFxkZyAHfdfs+MEuQMbJFYcoBf4Z6rKntF7S9TqhPSXMyXb5S9///x+gzVfFz8H4kLG6EJAXAiIC4Fvr/90/fj+ts/989d/7+f1M5OuhedTdYen/RZGFwLiQkBcCIgLAXHhfZXRq75K5FmV0VcrrXzzvXCtvjvc+1sYXQiICwFxISAuBMSF6sqoai7j2V/1K1XGs8/svcO+q694di2jCwFxISAuBMSFgLjQXxlNelZlVFUr56+4m2R0ISAuBMSFgLgQEBc+V2VU5bQ9Ox+R0YWAuBAQFwLiQkBc6K+MJv/Or1pN13c/e5/P5LWMLgTEhYC4EBAXAuJCdWW0d7bl/ArrLtr39Ky3wySjCwFxISAuBMSFgLgQ+PIRzzOqqg6qdh7dbX0bTmN0ISAuBMSFgLgQEBeqzzPqW71WtTJt8urXo/4PK9+8omqm6dlvanQhIC4ExIWAuBAQF07dZ9TXL66vwurrg3cNroures5GFwLiQkBcCIgLAXHhfZVR1W6XvhNR966Cq/qevrmeZ1d30ivFvIwIiAsBcSEgLrxvn1HfXMbeWmDFaV3v7sN2MBldCIgLAXEhIC4ExIUzzjOqmnvaWyt9jl55K+wzopiXEQFxISAuBMSFM1bTreibfzntPKOr6IlN9r54ZXQhIC4ExIWAuBAQF3Z07a6a2dlb0Uy6B3vKrTBnRDEvIwLiQkBcCIgL1fuM+noprJi8n70zMqfte3pldCEgLgTEhYC4EBAXqueM9p6hM1lzrbgPq5WqmDOimJcRAXEhIC4ExIX+DgxVe20mq4zJeuou6uO9cgrS5L4wowsBcSEgLgTEhYC4sKNr997+0n33PHmHd1uNU/U/NboQEBfEhR5GFwLiwqkdGKpMrtPb24nuts+Ij8vLiIC4EBAXAuJC/5zR5Jmtp80irTjtDKaqCsvoQkBcCIgLAXEhIC7smDPq01dB7O2bfR22ktBqOop5GREQFwLiQkBceF8Hhr3n/qxUB5MzVivuresGJ+/H6EJAXAiICwFxISAuVPem23v6alWft5XPrNzPNdhpfPKsohVGFwLiQkBcCIgLAXHhjK7dr047h6iqu8JVND9VNYfV1w3D6EJAXAiICwFxISAu9FdGe03OpPSdH3S37Vda+cyzZ2h0ISAuBMSFgLgQEBc+V2V0Wv/ta3DG6pm+c5GMLgTEhYC4EBAXAuJCf2U0OWszWQc9u5/JdXFVz8ecEe28jAiICwFxISAuVFdGe7vVTa4Wq3IX1VyTHfZ07aaYlxEBcSEgLgTEhc91nhHnMLoQEBcC4kJAXAiIC2/r/gFR4R1ZzSu5XQAAAABJRU5ErkJggg==" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Examinateur du Jury</div>
-                <div class="name-1">M. RANDRIANJAFINIARIVO</div>
-                <div class="name-2">Clerc</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD8klEQVR4nO3dMY7bMBAF0N0gF9EJ0uX+dbqcQHdIEyBVDqCGn54hucZ7ZbCWtZuPsQcUh5///v75gDHfBn8OxIWM6kJAXAiIC4Hvz3+6fv742Of+9bvkOnO/xfPdR65zD9zz8zpzr1rpeYeqCwFxISAuBMSFgLjwWmfU163MffOv6k2q7uee6p6q7P2/UF0IiAsBcSEgLgTEherOqG9FZu5V5/dKI+ZWkUauM2LuvVQXAuJCQFwIiAsBcaG/M9prpFfqW1sZMXI/e+9wjupCQFwIiAsBcSEgLrxXZ1T1hNv5vdL5VBcC4kJAXAiICwFxob8zWvmt/rQO4ppaD+rbi7Ty76O6EBAXAuJCQFwIiAvVndHeCWkjncjen3mqeq+RK6+kuhAQFwLiQkBcCIgLgc93Pc9ob29yb50a0Ud1ISAuBMSFgLgQEBde64xOW6PZOy/uK07bvtvOV1JdCIgLAXEhIC4ExIXqNaO9U7L7vufPudqmbfd1jlWvUl0IiAsBcSEgLgTEhdf2GfXttelTNfFg5clEd9tftW/+g+pCQFwIiAsBcSEgLlQ/Tff0FZ+d61tXutp+97n36ruO6kJAXAiICwFxISAuvLZmVNWt7F0B2TvDbUTfHXqajiP4MCIgLgTEhYC4UP003YivOJV65S6ee+vzflX3o7oQEBcC4kJAXAiIC9XnGfV1NFVdxoiVT9xdbafBVnWOc9dRXQiICwFxISAuBMSF6qfp+r7n980KqLpy1TyKvfueRthnRDEfRgTEhYC4EBAXqteMnuZ6pZHrjOg7R7WqW7kX9jgr50ioLgTEhYC4EBAXAuJC/9N0z2/Rc9/hV85VO2063N4TbO0zop0PIwLiQkBcCIgL/ecZPVXtmqnaZ9Q3Sftum8g98l5PKyddqC4ExAVxoYfqQkBceO08o6e+b/4j+nYezbm2zu4b0dcVqi4ExIWAuBAQFwLiQvVJryvPLd3bU6ycwNCn76+huhAQFwLiQkBcCIgL1WtGe1X1Jqd1WKftIRq5H9WFgLgQEBcC4kJAXNhx0muVqikNc33Q3tkOT333Y58R7XwYERAXAuJCQFzYcdLrnL4urO/U1Gvheawr93ONUF0IiAsBcSEgLgTEhR3nGY1YOSW7as1o5VNw1/H9lOpCQFwIiAsBcSEgLvR3Riv1TcDuOx925VlOfa96Ul0IiAsBcSEgLgTEhffqjEbWes6fiX21rT2tPOFIdSEgLgTEhYC4EBAX+jujlftf+rqevtkOVU6b7aC6EBAXAuJCQFwIiAvV5xmttLLv2LuK1KfvCUDVhYC4EBAXAuJCQFx4r/OMOIfqQkBcCIgLAXEhIC58jPsPhU0xkbrPJPEAAAAASUVORK5CYII=" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Professionnel</div>
-                <div class="name-1">M. ANDRIANAIVO</div>
-                <div class="name-2">Rivo Nirina (Gérant)</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD8klEQVR4nO3dsXHcMBAFUMnjRliBM/cfO3MF7EGJZhS5AAbC5+0CuPN7oYYieXd/QO6AXLx/fX68wZgfg9uBuJAxuhAQFwLiQuDn9U/H719v65x//n57PiPbjOx5xMjR++z2WxhdCIgLAXEhIC4ExIXHKqOrvlrgXkVTVS+MVD1Vn/0oqt3W/hZGFwLiQkBcCIgLAXGhujK6uleb9N3Vj+z53tzTvT3vVtFUnY/RhYC4EBAXAuJCQFzor4xmGrnzr6poqp7TOy7/tfapvCpGFwLiQkBcCIgLAXHhtSqjtW8nVTmfsA66MroQEBcC4kJAXAiIC/2V0W73+VXzSve2OW4dvepbnflbGF0IiAsBcSEgLgTEherKaG2HtP1niM6J57P2tzC6EBAXAuJCQFwIiAuPVUa7zQeNmNnV7Szq23DvWGsZXQiICwFxISAuBMSF6vWM+lYC6psBmdnZe7du5CPHuvdJjS4ExIWAuBAQFwLiQuD96/Pj242q7th36xe3f22ylsqIh7gYERAXAuJCQFxYMWdU1YVgRFWngr7zOSZ2hKhipVeKuRgREBcC4kJAXHitlV77esrdO8OjaK2i/b+NK6MLAXEhIC4ExIWAuLBrB4bdnhZb62h7F6mv+7fRhYC4EBAXAuJCQFx47D2jvg4MVzP3vLYuO9s+aR/vGfEQFyMC4kJAXAiICyueprveRff1W6hafbWvK8JZ9Nmr9jyyH+8ZUczFiIC4EBAXAuJCf2VUdeff967Nbr2+Z+qr+IwuBMSFgLgQEBcC4kJ1ZdTXRW3m2kkj/3XV1zP8GVeVNboQEBcC4kJAXAiIC9XvGe22VtHI0dc+Tbfbe0ZV34/RhYC4EBAXAuJCQFyoXum1ysxe3yN2e4doRN/c3Mg2RhcC4oK40MPoQkBceOb1jNaukdo3s3MUPYO3dpVbowsBcSEgLgTEhYC48FhltLbqqepNt1tPhrOon17Vr6M3He1cjAiICwFxISAu7LrS68w979aT4Zi4ulPf92x0ISAuBMSFgLgQEBdWzBlVmfkWz9paacTM+m6E0YWAuBAQFwLiQkBcqH7PaG0PhKrn0F6j+/fa6tLoQkBcCIgLAXEhIC48cweGkWP1Pc927+hnW2eJe/qerzO6EBAXAuJCQFwIiAv9ldFMM7ux9T0Xd06cM6o6H127eYiLEQFxISAuBMSF16qMRlR1tFvbf/tomzOqYnQhIC4ExIWAuBAQF/oro765jHtmroJ0LF1x6R7rGbGAixEBcSEgLgTEherKaG23upnrK1XVJufSN6ru0YGBYi5GBMSFgLgQEBcC71+fH8n2/NeMLgTEhYC4EBAXAuLC27h/sJMWryb8KqoAAAAASUVORK5CYII=" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Professionnel</div>
-                <div class="name-1">M. RALAMBOSOA</div>
-                <div class="name-2">Toavina</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD6UlEQVR4nO3dvY0bMRAG0DvDjWwFztx/7MwVbA9ODDhyAZvwo2ZInvBeeJBWK92HkQb8+/z3988HjPk2+DgQFzKqCwFxISAuBL4//3T9/PGxz/3rd8l15t7F89VHrnMP3PPzOnPPWul5h6oLAXEhIC4ExIWAuPBaZ9TXrcz98h/pKeYeM3c/99SVq+z9X6guBMSFgLgQEBcC4kJ1Z9Q3ItP3rL6xnr477HunT3OvpboQEBcC4kJAXAiIC/2d0V5VI0R77/BuG/3po7oQEBcC4kJAXAiIC+/VGVX1QXs7katohGgv1YWAuBAQFwLiQkBc6O+MVv6qrxoPqhpFuqbGg/rGsFb+L1QXAuJCQFwIiAsBcaG6Mzp/ZtrexzxVvdbIlVdSXQiICwFxISAuBMSFwOd7nGdU1S/07clwHT/fb4TqQkBcCIgLAXEhIC681hmdNkazsg/6inPerqLPcORZqgsBcSEgLgTEhYC4UN0Z9dnbT5222/a99Z2OPEt1ISAuBMSFgLgQEBeqZ9P1/dLu23+7bz7btfCEozl9n6HqQkBcCIgLAXEhIC681zqjld3TnKtt9Gfutfquo7oQEBcC4kJAXAiIC1/nPKOqE1H7OpE+V9usRbPpOIIvIwLiQkBcCIgLOzqjuTlmX3Hc5Jp61mnjXHP3o7oQEBcC4kJAXAiIC691Rn2/2Pv2u957xtDK02D7zqsdoboQEBcC4kJAXAiIC691RlWjG307cvfd4chj7q2fz9yVR1hnRDFfRgTEhYC4EBAXqmfTjfQCe/ug03b2vhf2OCv3kVBdCIgLAXEhIC4ExIXqzui0fdX27slwbR3rWXl20pPqQkBcCIgLAXEhIC5UrzNaeTbQyhOF+vZSuNv2SVj5GT6pLgTEBXGhh+pCQFzYsc5o5ayzvfu8XUWrk6rup6pTs86IYr6MCIgLAXEhIC68dtLrypNV3/UU1736Tm5SXQiICwFxISAuBMSF1zqj0/TNnZu7zruuIRq5H9WFgLgQEBcC4kJAXNhxnlGVlef+nLaj3VPf/VhnRDtfRgTEhYC4EBAX+nftrtI3U25up/ER18LzWPs++TmqCwFxISAuBMSFgLhQ3Rk9nbbjwZyq7ukuel/n91OqCwFxISAuBMSFgLjQ3xmttHfHg74VTPfCPrHqE1NdCIgLAXEhIC4ExIX36oz6zldauYrnWrj/Q98JR6oLAXEhIC4ExIWAuNDfGa1c/1J1Fk/fXLWrbQzrtL0dVBcC4kJAXAiICwFxoboz2rtbXdWappUdzd22n97e3b9VFwLiQkBcCIgLAXHhvc4z4hyqCwFxISAuBMSFgLjwMe4/qy4uT/8y7rAAAAAASUVORK5CYII=" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-        <div class="sticker">
-            <div class="inner-frame">
-                <div class="role">Encadreur Professionnel</div>
-                <div class="name-1">M. RANDRIAMANANTENA</div>
-                <div class="name-2">Herman</div>
-                <div class="divider"></div>
-                <div class="scan-label">• SCANNEZ-MOI 🌱 •</div>
-                <div class="qr-wrapper">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAIAAACWbMCmAAAD/UlEQVR4nO3du5FUMRAF0F2KRBQBHvnbeEQwOeBQhUUAcnT11JIYzjGp3fmwt3qmS1Lr88/vXx8w5svgz4G4kFFdCIgLAXEh8LX/p/b928c5rx8/lzxO/y76R577mbnXPPJcI7+1U/8KVRcC4kJAXAiICwFx4VlnVNetzH3zr+tNVj1X29i/nP1bqC4ExIWAuBAQFwLiwurOqDfXC8x9qx/pRFatENX1Zb251zPyOCPmnkt1ISAuBMSFgLgQEBfqO6OzVvVKddrAs+98PauoLgTEhYC4EBAXAuLCe3VGc13G2RM6vbOd2iqqCwFxISAuBMSFgLhQ3xnt/FY/ty+urldql3VqO/8WqgsBcSEgLgTEhYC4sLozOrv+UneGqG5aXTt67qmO6kJAXAiICwFxISAuBD7/n/uMVk0qaGXz6+7fX6e6EBAXAuJCQFwIiAvPOqO6m4BWrZvcNufttmnbdfcrqS4ExIWAuBAQFwLiwuo1o7M9zoidazRtYze3s+sZ+S3VhYC4EBAXAuJCQFxYvWbUqzsRs7PLmHv2trHnmrNq/oPOiEd8GBEQFwLiQkBcqD9nVLcqsXPCwKodbu0t9g3aTcdiPowIiAsBcSEgLtTPprutD7p/dkGvrge0m44r+DAiIC4ExIWAuPCsMzq7alM3+W3u9fRa2YTwnT3g3OtRXQiICwFxISAuBMSFZ53RyHfms1MIenVrWHXv67XopqQ5c4+juhAQFwLiQkBcCIgLd6wZ7VxJqVtpqtsT2BZ1YSOPPMI5IxbzYURAXAiICwFxYfU5o97Oc0Z1Z4jq1oxeG3ucnXMkVBcC4kJAXAiICwFxYfVuuttmMtSttty/1vM6umtRdSEgLgTEhYC4EBAXVu+mq+s76vaznZ2l8Cqbk9Bb9d5HqC4ExAVxoYbqQkBcqJ/AUPczO2cO1N3H2hb1XCNW/T87Z8RiPowIiAsBcSEgLjy76bXufNDZ3WJzbruddkTdGp/qQkBcCIgLAXEhIC4864xus7NTO7tv8HX0DNHI61FdCIgLAXEhIC4ExIV/56bX3qp7f+4/rzTi7KSLnupCQFwIiAsBcSEgLqye2n12JWVO3QmmtvE+1p0z90aoLgTEhYC4EBAXAuJC/X1GdXeJzj1X3UrKzl1w7fp+SnUhIC4ExIWAuBAQF+o7o53O7mdbtfb0GtglOKJunWuE6kJAXAiICwFxISAuvFdnVLfjbud5pVa29tSrm46uuhAQFwLiQkBcCIgL9Z3RzvMvO+/rqZtGPue22Q6qCwFxISAuBMSFgLiwujM6O61u5/6xuj14bdHchrPTv1UXAuJCQFwIiAsBceG97jPiHqoLAXEhIC4ExIWAuPAx7i81Si/hzaWtqAAAAABJRU5ErkJggg==" alt="QR Code" />
-                </div>
-                <div class="divider-bottom"></div>
-                <div class="univ">Master MISEI • 2026</div>
-                <div class="author">M. RAKOTONDRAIBE</div>
-            </div>
-        </div>
-    </div>
 </div>
-
 </body>
 </html>
