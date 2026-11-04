@@ -7,59 +7,35 @@
 
 ---
 
-## 📦 Fichiers créés dans votre dossier `Desktop/Qrcode`
+## 📦 Fichiers clés dans votre dossier `Desktop/Qrcode`
 
 | Fichier | Utilité |
 | :--- | :--- |
-| **`index.html`** | **La page web d'accueil** que les professeurs verront sur leur smartphone en scannant le QR code. |
-| **`ticket.html`** | **Le format Ticket de Caisse Thermique (58mm / 80mm)** en 100% Noir & Blanc pur, net et sans blabla, parfait pour votre imprimante ticket ! |
-| **`etiquettes.html`** | Planche A4 classique (si imprimante de bureau). |
-| **`planche_etiquettes_A4.pdf`** | **Le fichier PDF vectoriel haute définition** prêt à être imprimé directement sur papier A4 cartonné. |
-| **`qrcodes/`** | Dossier contenant les 4 images de QR codes individuels haute résolution et cartes prêtes à l'emploi. |
-| **`generate_tags.py`** & **`generate_pdf_a4.py`** | Les scripts Python qui ont généré les QR codes et le PDF. |
+| **`index.html`** | **La page web d'accueil** affichée sur smartphone en scannant le QR code (hébergée sur GitHub Pages). |
+| **`planche_stickers_3x5cm.pdf`** | **Planche A4 calibrée au format 3 cm × 5 cm** (12 étiquettes : 2 exemplaires pour chacun des 6 destinataires). |
+| **`stickers_3x5cm.html`** | **Planche web d'étiquettes 3 cm × 5 cm** imprimable en 1 clic via `Ctrl + P`. |
+| **`stickers_3x5cm/`** | **Dossier d'images individuelles 3 × 5 cm** à 300 DPI pour chaque pot. |
+| **`ticket.html`** | Planche de 6 cartes avec QR codes scannables. |
+| **`generate_stickers_3x5cm.py`** | Script Python régénérant les formats 3 × 5 cm (PNG, PDF, HTML). |
 
 ---
 
-## 🚀 Étape 1 : Mettre votre page en ligne gratuitement (en 60 secondes)
+## 👥 Répartition des 6 Pots de Succulentes
 
-Pour qu'un smartphone puisse ouvrir la page en scannant le QR code, elle doit être accessible sur Internet (un téléphone ne peut pas ouvrir un fichier `file:///C:/...` local).
-
-### Méthode la plus simple au monde : **Netlify Drop** (100% Gratuit)
-1. Ouvrez votre navigateur et allez sur : **[https://app.netlify.com/drop](https://app.netlify.com/drop)**
-2. Glissez-déposez simplement le dossier **`Qrcode`** (ou uniquement le fichier `index.html`) dans la zone en pointillés.
-3. En 5 secondes, Netlify vous donne une adresse web sécurisée gratuite (ex: `https://rakotondraibe-soutenance.netlify.app`).
-4. Votre site est officiellement en ligne pour toujours !
-
-*(Alternative : Vous pouvez aussi utiliser GitHub Pages ou Vercel).*
-
----
-
-## 🏷️ Étape 2 : Imprimer les 4 Étiquettes
-
-### Option A : Impression directe du PDF (Le plus rapide)
-* Ouvrez le fichier **`planche_etiquettes_A4.pdf`** et imprimez-le sur une feuille A4 (de préférence sur du papier blanc épais ou cartonné, 160g à 250g, ou papier kraft chez un imprimeur/cybercafé).
-
-### Option B : Depuis la page `etiquettes.html`
-* Ouvrez **`etiquettes.html`** dans Chrome/Edge.
-* Si votre adresse en ligne est prête (ex: `https://mon-site.netlify.app`), collez-la dans le champ en haut et cliquez sur **« Actualiser les QR Codes »**.
-* Cliquez sur **« Imprimer la planche A4 »** : le menu d'impression s'ouvre, vous n'avez plus qu'à imprimer !
-
----
-
-## ✂️ Étape 3 : Assemblage sur les 4 pots de fleur
-
-1. **Découpez** les 4 étiquettes le long des pointillés avec des ciseaux ou un cutter et une règle.
-2. **Attachez sur les pots :**
-   * **Recommandation chic (Le pic végétal) :** Collez chaque étiquette sur une petite pique en bois (cure-dent apéro en bambou ou demi-pique à brochette) et plantez-la délicatement dans la terre de la succulente.
-   * **Alternative ficelle :** Percez le petit repère rond en haut de l'étiquette avec une perforatrice et nouez avec un brin de ficelle naturelle (jute ou raphia) autour du col du pot blanc.
-
----
-
-## 👥 Répartition des 4 Pots
-
-| Pot | Destinataire | Rôle officiel | URL générée |
+| Pot | Destinataire | Rôle officiel / Entreprise | URL générée |
 | :---: | :--- | :--- | :--- |
-| **Pot 1** | **Mme RANDRIAMANANTANY Zely Arivelo** | Présidente du Jury (Professeur Faculté des Sciences) | `.../?prof=0` |
-| **Pot 2** | **M. RAKOTOARIMANANA Liva Graffin** | Encadreur Pédagogique (Professeur, Resp. Parcours MISEI) | `.../?prof=1` |
-| **Pot 3** | **Monsieur CLERK** | Examinateur du Jury (Docteur en Physique) | `.../?prof=2` |
-| **Pot 4** | **M. ANDRIANAIVO Rivo Nirina** | Encadreur Professionnel (Gérant SNOVIBOX SARL) | `.../?prof=3` |
+| **Pot 1** | **Mme RANDRIAMANANTANY Zely Arivelo** | Présidente du Jury (Professeur Faculté des Sciences) | `https://eduque-me.github.io/Qr/?prof=0` |
+| **Pot 2** | **M. RAKOTOARIMANANA Liva Graffin** | Encadreur Pédagogique (Professeur, Resp. Parcours MISEI) | `https://eduque-me.github.io/Qr/?prof=1` |
+| **Pot 3** | **M. RANDRIANJAFINIARIVO Clerc** | Examinateur du Jury (Docteur en Physique) | `https://eduque-me.github.io/Qr/?prof=2` |
+| **Pot 4** | **M. ANDRIANAIVO Rivo Nirina** | Encadreur Professionnel (Gérant SNOVIBOX SARL) | `https://eduque-me.github.io/Qr/?prof=3` |
+| **Pot 5** | **M. RALAMBOSOA Toavina** | Encadreur Professionnel (SNOVIBOX SARL) | `https://eduque-me.github.io/Qr/?prof=4` |
+| **Pot 6** | **M. RANDRIAMANANTENA Herman** | Encadreur Professionnel (SNOVIBOX SARL) | `https://eduque-me.github.io/Qr/?prof=5` |
+
+---
+
+## 🏷️ Impression des étiquettes 3 cm × 5 cm
+
+1. Ouvrez **`planche_stickers_3x5cm.pdf`** (ou `stickers_3x5cm.html`).
+2. Appuyez sur **`Ctrl + P`**.
+3. **Important :** Choisissez l'échelle **« 100% »** ou **« Taille réelle »** (ne pas cocher *Ajuster à la page*).
+4. Découpez le long des pointillés et collez sur les 6 pots !
